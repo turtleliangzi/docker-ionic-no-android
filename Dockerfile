@@ -3,6 +3,7 @@ FROM ubuntu:latest
 MAINTAINER turtle "turtle@anasit.com"
 
 COPY sources.list /etc/apt/sources.list
+COPY npmrc ~/.npmrc
 
 RUN \
         # apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0xcbcb082a1bb943db && \
@@ -13,7 +14,6 @@ RUN \
         npm install -g n && \
         n stable
 
-COPY npmrc ~/.npmrc
 
 RUN \
         npm install -g cnpm --registry=https://registry.npm.taobao.org && \
